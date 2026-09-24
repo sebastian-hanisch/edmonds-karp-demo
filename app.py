@@ -21,6 +21,7 @@ from ek_presets import (
     init_session_state_defaults,
     load_permalink_settings,
     randomize_seed,
+    seed_widget,
     sync_query_params,
 )
 from ek_scenario import build
@@ -123,18 +124,25 @@ with st.sidebar:
         help="Alle drei finden auf jedem Netz denselben maximalen Fluss. Bei den Standardeinstellungen brauchen sie im Mittel über 100 Netze 11,1 Wege (Breitensuche), 14,1 (Tiefensuche) und 8,2 (breitester Weg).",
     )
     if net_key == "random":
+        seed_widget("p_slider")
         p = st.slider("Werke", *bounds("p_slider"), key="p_slider", help="Anzahl der Werke (oben im Netz).")
         st.session_state[KEPT["p_slider"]] = p
+        seed_widget("d_slider")
         d = st.slider("Verteilzentren", *bounds("d_slider"), key="d_slider", help="Anzahl der Verteilzentren; jedes hat einen Durchsatz von 30 bis 60 % der gesamten Werkskapazität.")
         st.session_state[KEPT["d_slider"]] = d
+        seed_widget("s_slider")
         s = st.slider("Filialen", *bounds("s_slider"), key="s_slider", help="Anzahl der Filialen (unten im Netz).")
         st.session_state[KEPT["s_slider"]] = s
+        seed_widget("density_slider")
         density = st.slider("Netzdichte [%]", *bounds("density_slider"), key="density_slider", step=10, help="Anteil der möglichen Lanes (Werk → Verteilzentrum, Verteilzentrum → Filiale), die es gibt. Je dünner das Netz, desto eher sind die Lanes der Engpass.")
         st.session_state[KEPT["density_slider"]] = density
+        seed_widget("spread_slider")
         spread = st.slider("Streuung der Lane-Breiten [%]", *bounds("spread_slider"), key="spread_slider", step=25, help="0 = alle Lanes einer Stufe gleich breit, 100 = Kapazitäten gleichverteilt von 1 bis zum Doppelten der Grundbreite.")
         st.session_state[KEPT["spread_slider"]] = spread
+        seed_widget("load_slider")
         load = st.slider("Auslastung [% der Werkskapazität]", *bounds("load_slider"), key="load_slider", step=10, help="Gesamtnachfrage der Filialen in Prozent der gesamten Werkskapazität. Über 100 % können die Werke die Nachfrage nie decken; darunter entscheidet das Netz.")
         st.session_state[KEPT["load_slider"]] = load
+        seed_widget("seed_input")
         seed = st.number_input("Zufalls-Seed", *bounds("seed_input"), key="seed_input", step=1)
         st.session_state[KEPT["seed_input"]] = seed
         st.button("🎲 Neues Netz generieren", width="stretch", on_click=randomize_seed, help="Würfelt einen neuen Zufalls-Seed. Die Verteilungen über 100 feste Netze weiter unten ändern sich dabei nicht - nur die Marke „Ihre Ziehung“ wandert.")
