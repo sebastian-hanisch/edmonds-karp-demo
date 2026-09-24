@@ -8,11 +8,11 @@ Die Frage: **Wie viel Ware schafft ein Distributionsnetz (Werke → Verteilzentr
 Scheitert die Suche, ist der Fluss maximal, und die von S noch erreichbaren Knoten sind der **minimale Schnitt**, dessen Kapazität dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der Haken: die Suche **zählt Menge, nicht Geld**.
 
 **Einordnung in die Reihe (die Kanten des Graphen):** die Wurzel der Linie. Sie überträgt die augmentierenden Pfade der Matching-Linie (Berge, Einheitskapazität) auf **Kapazitäten** und führt Restgraph, Rückkanten und den Min-Cut-Beweis ein. Ihre Schwächen sind die Ansatzpunkte der nächsten Stücke: die Suche findet nur einen Weg je Durchlauf (**Dinic**, gebaut: [dinic-demo](https://github.com/sebastian-hanisch/dinic-demo)),
-Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**), und die Kosten entscheiden nicht (**Successive Shortest Paths**). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: dieses Stück und Dinic.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
+Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**, gebaut: [push-relabel-demo](https://github.com/sebastian-hanisch/push-relabel-demo)), und die Kosten entscheiden nicht (**Successive Shortest Paths**). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: dieses Stück, Dinic und Push-Relabel.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
 ```
 edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)                  [dieses Stück]
   ├─ dinic-demo (viele kürzeste Wege je Phase: Niveaugraph, blockierender Fluss)        [gebaut]
-  ├─ push-relabel-demo (kein Weg: Überschüsse schieben, Höhen anheben)                 [geplant]
+  ├─ push-relabel-demo (kein Weg: Überschüsse schieben, Höhen anheben)                 [gebaut]
   └─ ssp-demo (Kosten: der billigste Weg im Restgraphen, Potenziale)                    [geplant]
        ├─ cycle-canceling-demo → Netzwerksimplex (network-flow-demo)                    [geplant / gebaut als Fall-Demo]
        ├─ cost-scaling-demo (Push-Relabel + ε-Skalierung, das nutzt OR-Tools)           [geplant]

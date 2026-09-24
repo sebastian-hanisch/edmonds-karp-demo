@@ -81,7 +81,7 @@ dessen Kapazität genau dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der H
 )
 st.caption(
     "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - erstes Stück der Netzwerkfluss-Linie der \"Konzepte\"-Reihe, Verallgemeinerung der Demo \"Augmentierende Pfade\" aus der Matching-Linie - **ein** Verfahren an einem wachsenden Beispiel. "
-    "Die Schwächen dieses Stücks sind die Ansatzpunkte der nächsten: **Dinic** (viele kürzeste Wege je Phase, gebaut), **Push-Relabel** (Fluss ohne Wege), **Successive Shortest Paths** (die Kosten entscheiden). "
+    "Die Schwächen dieses Stücks sind die Ansatzpunkte der nächsten: **Dinic** (viele kürzeste Wege je Phase, gebaut), **Push-Relabel** (Fluss ohne Wege, gebaut), **Successive Shortest Paths** (die Kosten entscheiden). "
     "Den Netzwerksimplex für kostenminimale Flüsse zeigt bereits die Fall-Demo \"Distributionsnetzwerk-Optimierung\". Der kostenminimale Fluss in dieser Demo kommt aus einer kleinen exakten Referenz und dient nur zum Messen."
 )
 
@@ -382,13 +382,13 @@ st.markdown(
 |---|---|---|
 | **Nur die Menge zählt** | Der Fluss ist maximal, aber die Kosten liegen bei den Standardeinstellungen im Median rund 11 % (Breitensuche) über dem billigsten Fluss gleicher Menge: die Suche sieht nur Restkapazitäten, keine Preise. | **Successive Shortest Paths**: der billigste Weg im Restgraphen entscheidet |
 | **Ein Weg je Suche** | Bei wachsendem Netz steigen die durchsuchten Kanten schneller als die Kantenzahl (Steigung 1,7 bis 1,9): es gibt mehr Wege, und jede Suche kann fast das ganze Netz anfassen. | **Dinic** (gebaut): viele kürzeste Wege je Suche (Niveaugraph, blockierender Fluss) |
-| **Fluss wird über Wege gebaut** | Verbesserungswege legen den Fluss Weg für Weg; kein Verfahren erzeugt ihn lokal, Knoten für Knoten, und muss dabei nie einen ganzen Weg kennen. | **Push-Relabel**: Überschüsse schieben, Höhen anheben |
+| **Fluss wird über Wege gebaut** | Verbesserungswege legen den Fluss Weg für Weg; kein Verfahren erzeugt ihn lokal, Knoten für Knoten, und muss dabei nie einen ganzen Weg kennen. | **Push-Relabel** (gebaut): Überschüsse schieben, Höhen anheben |
 | **Ein Gut, teilbar** | Alle Waren sind gleich und beliebig teilbar. Mehrere Güter auf gemeinsamen Kanten (Frische, Trocken, Kühl) machen den Fluss im Allgemeinen gebrochen, ganzzahlig ist er NP-schwer. | **Mehrgüterfluss** (später in dieser Linie) |
 | **Kapazitäten sind ganzzahlig** | Die Demo rechnet mit ganzen Einheiten. Bei irrationalen Kapazitäten kann Ford-Fulkerson bei ungünstiger Pfadwahl unendlich laufen, Edmonds-Karp nie. | Breitensuche als Regel |
 | **Ein Zeitpunkt** | Das Netz gilt für eine Periode; wer über mehrere Perioden mit Lagerhaltung plant, dehnt das Netz zeitlich aus. | Fall-Demo \"Distributionsnetzwerk-Optimierung\" |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp und Dinic gebaut.")
+st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic und Push-Relabel gebaut.")
 
 st.markdown("---")
 
