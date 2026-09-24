@@ -383,12 +383,12 @@ st.markdown(
 | **Nur die Menge zählt** | Der Fluss ist maximal, aber die Kosten liegen bei den Standardeinstellungen im Median rund 11 % (Breitensuche) über dem billigsten Fluss gleicher Menge: die Suche sieht nur Restkapazitäten, keine Preise. | **Successive Shortest Paths**: der billigste Weg im Restgraphen entscheidet |
 | **Ein Weg je Suche** | Bei wachsendem Netz steigen die durchsuchten Kanten schneller als die Kantenzahl (Steigung 1,7 bis 1,9): es gibt mehr Wege, und jede Suche kann fast das ganze Netz anfassen. | **Dinic** (gebaut): viele kürzeste Wege je Suche (Niveaugraph, blockierender Fluss) |
 | **Fluss wird über Wege gebaut** | Verbesserungswege legen den Fluss Weg für Weg; kein Verfahren erzeugt ihn lokal, Knoten für Knoten, und muss dabei nie einen ganzen Weg kennen. | **Push-Relabel** (gebaut): Überschüsse schieben, Höhen anheben |
-| **Ein Gut, teilbar** | Alle Waren sind gleich und beliebig teilbar. Mehrere Güter auf gemeinsamen Kanten (Frische, Trocken, Kühl) machen den Fluss im Allgemeinen gebrochen, ganzzahlig ist er NP-schwer. | **Mehrgüterfluss** (später in dieser Linie) |
+| **Ein Gut, teilbar** | Alle Waren sind gleich und beliebig teilbar. Mehrere Güter auf gemeinsamen Kanten (Frische, Trocken, Kühl) machen den Fluss im Allgemeinen gebrochen, ganzzahlig ist er NP-schwer. | **Mehrgüterfluss** (gebaut: multicommodity-demo) |
 | **Kapazitäten sind ganzzahlig** | Die Demo rechnet mit ganzen Einheiten. Bei irrationalen Kapazitäten kann Ford-Fulkerson bei ungünstiger Pfadwahl unendlich laufen, Edmonds-Karp nie. | Breitensuche als Regel |
 | **Ein Zeitpunkt** | Das Netz gilt für eine Periode; wer über mehrere Perioden mit Lagerhaltung plant, dehnt das Netz zeitlich aus. | Fall-Demo \"Distributionsnetzwerk-Optimierung\" |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths (gebaut), Cycle-Canceling (gebaut), Cost Scaling (gebaut), Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling und Cost Scaling gebaut.")
+st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths (gebaut), Cycle-Canceling (gebaut), Cost Scaling (gebaut), Mehrgüterfluss (gebaut), Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling, Cost Scaling und Mehrgüterfluss gebaut.")
 
 st.markdown("---")
 

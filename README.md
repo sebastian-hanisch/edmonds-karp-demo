@@ -16,8 +16,9 @@ edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)          
   └─ ssp-demo (Kosten: der billigste Weg im Restgraphen, Potenziale)                    [gebaut]
        ├─ cycle-canceling-demo → Netzwerksimplex (network-flow-demo)                    [gebaut / gebaut als Fall-Demo]
        ├─ cost-scaling-demo (Push-Relabel + ε-Skalierung, das nutzt OR-Tools)           [gebaut]
-       └─ multicommodity-demo → Column Generation, Garg-Könemann,
-          Fixkosten-Netzwerkdesign → Benders-Zerlegung, Slope Scaling                   [geplant]
+       └─ multicommodity-demo (mehrere Güter teilen Kapazität: Kanten-LP, Preise)       [gebaut]
+            → Column Generation, Garg-Könemann,
+              Fixkosten-Netzwerkdesign → Benders-Zerlegung, Slope Scaling               [geplant]
 ```
 
 ## Ergebnis (Zahlen aus den Tests)
