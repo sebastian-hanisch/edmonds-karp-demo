@@ -388,7 +388,7 @@ st.markdown(
 | **Ein Zeitpunkt** | Das Netz gilt für eine Periode; wer über mehrere Perioden mit Lagerhaltung plant, dehnt das Netz zeitlich aus. | Fall-Demo \"Distributionsnetzwerk-Optimierung\" |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths (gebaut), Cycle-Canceling (gebaut), Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths und Cycle-Canceling gebaut.")
+st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths (gebaut), Cycle-Canceling (gebaut), Cost Scaling (gebaut), Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling und Cost Scaling gebaut.")
 
 st.markdown("---")
 

@@ -8,14 +8,14 @@ Die Frage: **Wie viel Ware schafft ein Distributionsnetz (Werke → Verteilzentr
 Scheitert die Suche, ist der Fluss maximal, und die von S noch erreichbaren Knoten sind der **minimale Schnitt**, dessen Kapazität dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der Haken: die Suche **zählt Menge, nicht Geld**.
 
 **Einordnung in die Reihe (die Kanten des Graphen):** die Wurzel der Linie. Sie überträgt die augmentierenden Pfade der Matching-Linie (Berge, Einheitskapazität) auf **Kapazitäten** und führt Restgraph, Rückkanten und den Min-Cut-Beweis ein. Ihre Schwächen sind die Ansatzpunkte der nächsten Stücke: die Suche findet nur einen Weg je Durchlauf (**Dinic**, gebaut: [dinic-demo](https://github.com/sebastian-hanisch/dinic-demo)),
-Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**, gebaut: [push-relabel-demo](https://github.com/sebastian-hanisch/push-relabel-demo)), und die Kosten entscheiden nicht (**Successive Shortest Paths**, gebaut: [ssp-demo](https://github.com/sebastian-hanisch/ssp-demo)). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: dieses Stück, Dinic, Push-Relabel, Successive Shortest Paths und Cycle-Canceling.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
+Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**, gebaut: [push-relabel-demo](https://github.com/sebastian-hanisch/push-relabel-demo)), und die Kosten entscheiden nicht (**Successive Shortest Paths**, gebaut: [ssp-demo](https://github.com/sebastian-hanisch/ssp-demo)). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: dieses Stück, Dinic, Push-Relabel, Successive Shortest Paths, Cycle-Canceling und Cost Scaling.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
 ```
 edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)                  [dieses Stück]
   ├─ dinic-demo (viele kürzeste Wege je Phase: Niveaugraph, blockierender Fluss)        [gebaut]
   ├─ push-relabel-demo (kein Weg: Überschüsse schieben, Höhen anheben)                 [gebaut]
   └─ ssp-demo (Kosten: der billigste Weg im Restgraphen, Potenziale)                    [gebaut]
        ├─ cycle-canceling-demo → Netzwerksimplex (network-flow-demo)                    [gebaut / gebaut als Fall-Demo]
-       ├─ cost-scaling-demo (Push-Relabel + ε-Skalierung, das nutzt OR-Tools)           [geplant]
+       ├─ cost-scaling-demo (Push-Relabel + ε-Skalierung, das nutzt OR-Tools)           [gebaut]
        └─ multicommodity-demo → Column Generation, Garg-Könemann,
           Fixkosten-Netzwerkdesign → Benders-Zerlegung, Slope Scaling                   [geplant]
 ```
