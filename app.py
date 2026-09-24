@@ -81,7 +81,7 @@ dessen Kapazität genau dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der H
 )
 st.caption(
     "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - erstes Stück der Netzwerkfluss-Linie der \"Konzepte\"-Reihe, Verallgemeinerung der Demo \"Augmentierende Pfade\" aus der Matching-Linie - **ein** Verfahren an einem wachsenden Beispiel. "
-    "Die Schwächen dieses Stücks sind die Ansatzpunkte der nächsten: **Dinic** (viele kürzeste Wege je Phase, gebaut), **Push-Relabel** (Fluss ohne Wege, gebaut), **Successive Shortest Paths** (die Kosten entscheiden). "
+    "Die Schwächen dieses Stücks sind die Ansatzpunkte der nächsten: **Dinic** (viele kürzeste Wege je Phase, gebaut), **Push-Relabel** (Fluss ohne Wege, gebaut), **Successive Shortest Paths** (die Kosten entscheiden, gebaut). "
     "Den Netzwerksimplex für kostenminimale Flüsse zeigt bereits die Fall-Demo \"Distributionsnetzwerk-Optimierung\". Der kostenminimale Fluss in dieser Demo kommt aus einer kleinen exakten Referenz und dient nur zum Messen."
 )
 
@@ -388,7 +388,7 @@ st.markdown(
 | **Ein Zeitpunkt** | Das Netz gilt für eine Periode; wer über mehrere Perioden mit Lagerhaltung plant, dehnt das Netz zeitlich aus. | Fall-Demo \"Distributionsnetzwerk-Optimierung\" |
 """
 )
-st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths, Cycle-Canceling, Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic und Push-Relabel gebaut.")
+st.caption("Die Netzwerkfluss-Linie ist als Ganzes geplant: Edmonds-Karp (dieses Stück), Dinic (gebaut), Push-Relabel (gebaut), Successive Shortest Paths (gebaut), Cycle-Canceling, Cost Scaling, Mehrgüterfluss, Column Generation, Garg-Könemann, Fixkosten-Netzwerkdesign, Benders-Zerlegung und Slope Scaling - bisher sind Edmonds-Karp, Dinic, Push-Relabel und Successive Shortest Paths gebaut.")
 
 st.markdown("---")
 
