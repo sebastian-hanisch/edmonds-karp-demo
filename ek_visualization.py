@@ -83,10 +83,9 @@ def _hover_points(fig, net, entries):
 
 
 def _labels(fig, points):
-    """points: [(x, y, Text)]"""
-    if points:
-        fig.add_trace(go.Scatter(x=[p[0] for p in points], y=[p[1] for p in points], mode="text", text=[p[2] for p in points], textposition="middle right",
-                                 hoverinfo="skip", showlegend=False, textfont=dict(size=12)))
+    """points: [(x, y, Text)] - als Annotationen mit heller Hinterlegung, damit sie Kanten, Pfeile und Knotenbeschriftungen nicht unlesbar machen."""
+    for x, y, text in points:
+        fig.add_annotation(x=x, y=y, text=text, showarrow=False, xanchor="left", font=dict(size=11, color="#111"), bgcolor="rgba(255,255,255,0.88)", borderpad=1)
 
 
 def _arc_name(net, i):
@@ -133,7 +132,7 @@ def build_residual(net, flow, path=None, height=460):
             hover.append((curve, f"{net.names[a]} → {net.names[b]}: Restkapazität {res} ({'Vorwärtskante' if forward else 'Rückkante: gelegten Fluss zurücknehmen'})"))
             if e in path_set:
                 (p_fwd if forward else p_back).append((curve, res))
-                labels.append((curve[3][0] + 1.5, curve[3][1], f"{res}"))
+                labels.append((curve[0][3] + 1.5, curve[1][3], f"{res}"))
             else:
                 (fwd if forward else back).append(curve)
     _lines(fig, fwd, "rgba(31,119,180,0.55)", 1.6, "Restkapazität (Vorwärtskante)")
@@ -165,10 +164,10 @@ def build_flow(net, flow, path=None, cut=None, reach=None, height=460):
         hover.append((curve, f"{_arc_name(net, i)}: Fluss {flow[i]} von {cap}, Kosten {cost} je Einheit"))
         if i in cut_set:
             special["cut"].append(curve)
-            labels.append((curve[3][0] + 1.5, curve[3][1], f"{cap}"))
+            labels.append((curve[0][3] + 1.5, curve[1][3], f"{cap}"))
         elif i in path_set:
             special["path"].append(curve)
-            labels.append((curve[3][0] + 1.5, curve[3][1], f"{flow[i]}/{cap}"))
+            labels.append((curve[0][3] + 1.5, curve[1][3], f"{flow[i]}/{cap}"))
         else:
             groups["idle" if flow[i] == 0 else "full" if flow[i] == cap else "part"].append((curve, flow[i]))
     _lines(fig, [c for c, _ in groups["idle"]], C.COLORS["faint"], 1.2, "ungenutzt")
@@ -219,7 +218,7 @@ def build_rule_hist(rounds_by_rule, labels, current=None, height=300):
     fig.update_xaxes(title="Verbesserungswege bis zum Ende")
     fig.update_yaxes(title="Karten")
     fig = _base(fig, height)
-    fig.update_layout(legend=dict(orientation="h", y=-0.35), height=height + 50)
+    fig.update_layout(legend=dict(orientation="h", y=-0.35), height=height + 50, margin=dict(l=10, r=10, t=30 if current is not None else 10, b=10))
     return fig
 
 
@@ -286,5 +285,5 @@ def build_gap_compare(gaps_by_label, current=None, height=300):
     fig.update_xaxes(title="Mehrkosten gegenüber dem kostenminimalen Fluss [%]")
     fig.update_yaxes(title="Karten")
     fig = _base(fig, height)
-    fig.update_layout(legend=dict(orientation="h", y=-0.4), height=height + 60)
+    fig.update_layout(legend=dict(orientation="h", y=-0.4), height=height + 60, margin=dict(l=10, r=10, t=30 if current is not None else 10, b=10))
     return fig
