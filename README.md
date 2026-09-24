@@ -20,7 +20,7 @@ edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)          
             ├─ mcf-column-generation-demo (Pfade als Spalten, Pricing = Dijkstra)       [gebaut]
             ├─ garg-koenemann-demo (Näherung mit Preisen, ohne LP-Löser)                [gebaut]
             └─ fixkosten-netzdesign-demo (Fixkosten: Schranke und Schnitte)             [gebaut]
-                 ├─ Benders-Zerlegung (Entwurf im Master, Fluss im Teilproblem)         [geplant]
+                 ├─ benders-demo (Entwurf im Master, Fluss im Teilproblem)              [gebaut]
                  └─ Slope Scaling (Heuristik für große Netze)                           [geplant]
 ```
 
