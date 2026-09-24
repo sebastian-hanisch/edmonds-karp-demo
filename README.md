@@ -21,7 +21,7 @@ edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)          
             ├─ garg-koenemann-demo (Näherung mit Preisen, ohne LP-Löser)                [gebaut]
             └─ fixkosten-netzdesign-demo (Fixkosten: Schranke und Schnitte)             [gebaut]
                  ├─ benders-demo (Entwurf im Master, Fluss im Teilproblem)              [gebaut]
-                 └─ Slope Scaling (Heuristik für große Netze)                           [geplant]
+                 └─ slope-scaling-demo (Fixkosten linearisieren, ohne Beweis)           [gebaut]
 ```
 
 ## Ergebnis (Zahlen aus den Tests)
