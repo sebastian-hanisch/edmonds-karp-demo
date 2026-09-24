@@ -1,17 +1,17 @@
 # Maximaler Fluss und minimaler Schnitt – Edmonds-Karp – Streamlit-Demo
 
-*(noch nicht deployed)*
+**[→ Demo live ausprobieren](https://sebastianhanisch-edmonds-karp-demo.streamlit.app/)**
 
 Erstes Stück der **Netzwerkfluss-Linie** der "Konzepte"-Reihe für die Website "Sebastian Hanisch – Operations Research und Machine Learning", Verallgemeinerung der Demo [Augmentierende Pfade](https://github.com/sebastian-hanisch/augmenting-path-demo) aus der Matching-Linie:
 anders als die Fall-Demos im Portfolio (ein Anwendungsfall, mehrere Verfahren im Vergleich) zeigt diese Demo **ein** Verfahren – **Verbesserungswege im Restgraphen** eines Flussnetzes (Ford-Fulkerson; mit Breitensuche: Edmonds-Karp) – an einem wachsenden Beispiel.
 Die Frage: **Wie viel Ware schafft ein Distributionsnetz (Werke → Verteilzentren → Filialen) höchstens – und wo ist der Engpass?** Solange es im Restgraphen einen Weg von der Quelle S zur Senke T gibt, wird er um seinen Engpass aufgefüllt; der Restgraph kennt neben der freien Kapazität **Rückkanten**, auf denen schon gelegter Fluss wieder zurückgenommen und umgeleitet wird.
 Scheitert die Suche, ist der Fluss maximal, und die von S noch erreichbaren Knoten sind der **minimale Schnitt**, dessen Kapazität dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der Haken: die Suche **zählt Menge, nicht Geld**.
 
-**Einordnung in die Reihe (die Kanten des Graphen):** die Wurzel der Linie. Sie überträgt die augmentierenden Pfade der Matching-Linie (Berge, Einheitskapazität) auf **Kapazitäten** und führt Restgraph, Rückkanten und den Min-Cut-Beweis ein. Ihre Schwächen sind die Ansatzpunkte der nächsten Stücke: die Suche findet nur einen Weg je Durchlauf (**Dinic**),
-Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**), und die Kosten entscheiden nicht (**Successive Shortest Paths**). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: nur dieses Stück.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
+**Einordnung in die Reihe (die Kanten des Graphen):** die Wurzel der Linie. Sie überträgt die augmentierenden Pfade der Matching-Linie (Berge, Einheitskapazität) auf **Kapazitäten** und führt Restgraph, Rückkanten und den Min-Cut-Beweis ein. Ihre Schwächen sind die Ansatzpunkte der nächsten Stücke: die Suche findet nur einen Weg je Durchlauf (**Dinic**, gebaut: [dinic-demo](https://github.com/sebastian-hanisch/dinic-demo)),
+Fluss braucht keine Wege, wenn man ihn lokal schiebt (**Push-Relabel**), und die Kosten entscheiden nicht (**Successive Shortest Paths**). Den Netzwerksimplex für kostenminimale Flüsse zeigt die Fall-Demo [Distributionsnetzwerk-Optimierung](https://github.com/sebastian-hanisch/network-flow-demo). **Bisher gebaut: dieses Stück und Dinic.** Der Plan der ganzen Linie steht im Plan-Dokument der Netzwerkfluss-Linie.
 ```
 edmonds-karp-demo (Wurzel: Restgraph, Rückkanten, Max-Flow = Min-Cut)                  [dieses Stück]
-  ├─ dinic-demo (viele kürzeste Wege je Phase: Niveaugraph, blockierender Fluss)        [geplant]
+  ├─ dinic-demo (viele kürzeste Wege je Phase: Niveaugraph, blockierender Fluss)        [gebaut]
   ├─ push-relabel-demo (kein Weg: Überschüsse schieben, Höhen anheben)                 [geplant]
   └─ ssp-demo (Kosten: der billigste Weg im Restgraphen, Potenziale)                    [geplant]
        ├─ cycle-canceling-demo → Netzwerksimplex (network-flow-demo)                    [geplant / gebaut als Fall-Demo]
