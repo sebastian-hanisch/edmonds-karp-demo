@@ -1,4 +1,4 @@
-"""Kostenminimaler Fluss als Vergleichsmaßstab (Vorgriff auf das nächste Stück der Linie: Successive Shortest Paths).
+"""Kostenminimaler Fluss als Vergleichsmaßstab (das Verfahren selbst, Successive Shortest Paths, zeigt die ssp-demo der Linie).
 
 Ein Verbesserungsweg-Verfahren zählt nur Menge, nicht Geld. Damit sich zeigen lässt, was das kostet, löst dieser kleine
 Benchmark dasselbe Netz kostenminimal: immer wieder der billigste Weg im Restgraphen (Bellman-Ford mit Warteschlange, Rückkanten kosten
