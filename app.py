@@ -298,7 +298,7 @@ with st.expander("🔧 Wie wir das erreichen – Verfahren im Vergleich"):
         table["Kosten"] = [r["cost"] for r in cmp_rows]
         table["Mehrkosten"] = [_pct(r["gap"]) for r in cmp_rows]
     st.table(table)
-    st.caption("Bei jeder Wegesuche ist der Flusswert am Ende derselbe (der größtmögliche) und der Schnitt derselbe. Die Kosten je Einheit stehen an den Kanten (Hover); die Mehrkosten sind gegen den kostenminimalen Fluss gleicher Menge gerechnet - dieser Benchmark ist Thema von Successive Shortest Paths, einem späteren Stück.")
+    st.caption("Bei jeder Wegesuche ist der Flusswert am Ende derselbe (der größtmögliche) und der Schnitt derselbe. Die Kosten je Einheit stehen an den Kanten (Hover); die Mehrkosten sind gegen den kostenminimalen Fluss gleicher Menge gerechnet - dieser Benchmark ist Thema von Successive Shortest Paths (gebaut).")
     st.markdown("**Protokoll der Runden** (aktuelle Einstellung)")
     if n_rounds:
         st.dataframe({"Runde": list(range(1, n_rounds + 1)), "Weglänge": [r.length for r in res.rounds], "Engpass": [r.bottleneck for r in res.rounds], "Flusswert danach": [r.flow_after for r in res.rounds],
@@ -419,7 +419,7 @@ with st.expander("📐 Mathematische Formulierung"):
 
 **Knotenkapazität.** Ein Verteilzentrum $v$ mit Durchsatz $q_v$ wird zu $v_{\text{ein}}\to v_{\text{aus}}$ mit Kapazität $q_v$; Zuflüsse enden in $v_{\text{ein}}$, Abflüsse beginnen in $v_{\text{aus}}$.
 
-**Kosten.** Die Suche kennt Kosten $a_e$ je Einheit nicht. Sie garantiert $|f|=|f^*|$, aber nichts über $\sum_e a_e f_e$; unter allen maximalen Flüssen minimiert der Successive-Shortest-Path-Algorithmus (nächstes Stück der Linie) die Kosten.
+**Kosten.** Die Suche kennt Kosten $a_e$ je Einheit nicht. Sie garantiert $|f|=|f^*|$, aber nichts über $\sum_e a_e f_e$; unter allen maximalen Flüssen minimiert der Successive-Shortest-Path-Algorithmus (gebaut: ssp-demo) die Kosten.
 
 Implementiert in `ek_scenario.py` (Netze, eigener Zufallsgenerator), `ek_algorithm.py` (Verbesserungswege, Beweis), `ek_mincost.py` (Kosten-Benchmark), `ek_evaluation.py` (Kennzahlen, Verteilungen, Experimente).
         """
@@ -429,6 +429,6 @@ st.markdown("---")
 
 st.caption(
     "Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – "
-    "Operations Research und Machine Learning. Interesse an einer maßgeschneiderten Lösung für "
-    "Ihr Unternehmen? [Kontakt aufnehmen](https://sebastianhanisch.net/kontakt.html)"
+    "Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). "
+    "Mehr zur Reihe: [Netzwerkfluss: vom Max-Flow zum Netzdesign](https://sebastianhanisch.net/konzepte-netzwerkfluss.html)."
 )

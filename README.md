@@ -60,7 +60,7 @@ Vor dem Schreiben der Texte wurde über die 100 Netze gemessen; einige Vermutung
 - **Experimente (🔬):** Engpass-Ort über die Auslastung; Rückkanten weglassen; Menge maximal und die Kosten; Schranke und Skalierung; die Ford-Fulkerson-Falle.
 - **Feste Lehrnetze** (Raute mit Querkante, Ford-Fulkerson-Falle, Zuordnung als Fluss) und zufällige Distributionsnetze; **Wo die Annahmen enden:** welches spätere Stück an welcher Schwäche ansetzt.
 
-Der **kostenminimale Fluss** kommt aus einem kleinen eigenen Benchmark (`ek_mincost.py`, Bellman-Ford mit Warteschlange auf Ganzzahlen), der hier nur zum Messen dient und in `tests/` gegen `networkx.max_flow_min_cost` geprüft wird; das Verfahren selbst ist Thema von Successive Shortest Paths, einem späteren Stück.
+Der **kostenminimale Fluss** kommt aus einem kleinen eigenen Benchmark (`ek_mincost.py`, Bellman-Ford mit Warteschlange auf Ganzzahlen), der hier nur zum Messen dient und in `tests/` gegen `networkx.max_flow_min_cost` geprüft wird; das Verfahren selbst ist Thema von Successive Shortest Paths (gebaut: [ssp-demo](https://github.com/sebastian-hanisch/ssp-demo)).
 
 ## Modell und Verfahren
 
@@ -103,3 +103,7 @@ venv\Scripts\python -m pytest tests -v
 
 Die Logik rechnet ausschließlich mit ganzen Zahlen; die im Text genannten Anteile und Mediane sind deshalb auf jeder Plattform identisch.
 Die CI (`.github/workflows/tests.yml`) läuft auf Ubuntu mit Python 3.12, bei jedem Push und wöchentlich mit den jeweils neuesten Bibliotheksversionen.
+
+---
+
+Diese Demo ist Teil des Portfolios von [Sebastian Hanisch](https://sebastianhanisch.net) – Operations Research und Machine Learning ([Über mich](https://sebastianhanisch.net/ueber-mich.html)). Mehr zur Reihe: [Netzwerkfluss: vom Max-Flow zum Netzdesign](https://sebastianhanisch.net/konzepte-netzwerkfluss.html).
