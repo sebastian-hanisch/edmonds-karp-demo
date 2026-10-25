@@ -80,6 +80,17 @@ ein Weg darf schon gelegten Fluss wieder zurücknehmen und umleiten. Scheitert d
 dessen Kapazität genau dem Flusswert entspricht (**Max-Flow = Min-Cut**). Der Haken: die Suche zählt **Menge, nicht Geld**. Diese Demo zeigt beides - dass der Fluss maximal wird, und was das kostet.
 """
 )
+
+# erklaerseite:einfach:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/maximaler-fluss-erklaert.json, nicht von Hand ändern)
+with st.expander("💬 In einfachen Worten"):
+    st.markdown(
+        """
+Stellen Sie sich ein Netz aus Werken, Verteilzentren und Filialen vor. Jede Verbindung kann nur eine bestimmte Menge Ware befördern. Gefragt ist, wie viel Ware das ganze Netz höchstens von den Werken zu den Filialen bringt. Das Verfahren sucht dazu einen Weg, auf dem überall noch Platz ist, schickt so viel Ware hindurch, wie die engste Stelle zulässt, und wiederholt das. Es darf dabei auch schon gelegte Ware wieder zurücknehmen und umleiten. Gibt es keinen freien Weg mehr, ist der Fluss maximal. Die Stellen, an denen es nicht weitergeht, bilden den **minimalen Schnitt**, den Engpass des Netzes. Seine Kapazität ist genau so groß wie der maximale Fluss. Das Verfahren zählt dabei nur die Menge, nicht die Kosten.
+
+[Ausführlich und verständlich erklärt, mit Fachteil](https://sebastianhanisch.net/maximaler-fluss-erklaert.html)
+        """
+    )
+# erklaerseite:einfach:end
 st.caption(
     "Anders als die Fall-Demos im Portfolio, die an einem Anwendungsfall mehrere Verfahren vergleichen, zeigt diese Demo - erstes Stück der Netzwerkfluss-Linie der \"Konzepte\"-Reihe, Verallgemeinerung der Demo \"Augmentierende Pfade\" aus der Matching-Linie - **ein** Verfahren an einem wachsenden Beispiel. "
     "Die Schwächen dieses Stücks sind die Ansatzpunkte der nächsten: **Dinic** (viele kürzeste Wege je Phase, gebaut), **Push-Relabel** (Fluss ohne Wege, gebaut), **Successive Shortest Paths** (die Kosten entscheiden, gebaut). "
@@ -401,6 +412,26 @@ st.caption("Die Netzwerkfluss-Linie besteht aus Edmonds-Karp (dieses Stück), Di
 st.markdown("---")
 
 with st.expander("📐 Mathematische Formulierung"):
+    # erklaerseite:lesehilfe:start (erzeugt von tools/set_demo_explainer.py (Website-Repo) aus tools/content/explainers/maximaler-fluss-erklaert.json, nicht von Hand ändern)
+    st.markdown(
+        r"""
+**Lesehilfe.** Gegeben sind ein gerichtetes Netz $G=(V,E)$ mit Quelle $s$, Senke $t$ und ganzzahligen Kapazitäten $c_e$. Gesucht sind ein Fluss $f$ mit größtem Wert $|f|$ und ein Schnitt mit kleinster Kapazität.
+
+| Symbol | Bedeutung |
+|---|---|
+| $s$, $t$ | Quelle (alle Werke zusammen) und Senke (alle Filialen zusammen) |
+| $c_e$, $f_e$ | Kapazität und Fluss auf der Kante $e$ |
+| $\lvert f\rvert$ | Wert des Flusses: die Menge, die insgesamt von $s$ nach $t$ fließt |
+| $G_f$ | Restgraph: Vorwärtskanten mit Restkapazität $c_e-f_e$, Rückkanten mit Restkapazität $f_e$ |
+| $\delta$ | Engpass eines Verbesserungswegs: kleinste Restkapazität auf ihm |
+| $Z$, $\bar Z$ | Menge der von $s$ in $G_f$ erreichbaren Knoten und ihr Rest |
+| $c(Z,\bar Z)$ | Kapazität des Schnitts: Summe der Kapazitäten der Kanten von $Z$ nach $\bar Z$ |
+| $d_f(s,v)$ | Zahl der Kanten des kürzesten Wegs von $s$ zu $v$ in $G_f$ |
+
+[Schritt für Schritt erklärt, mit Herleitung und Literatur](https://sebastianhanisch.net/maximaler-fluss-erklaert.html#fachleute)
+        """
+    )
+    # erklaerseite:lesehilfe:end
     st.markdown(
         r"""
 **Modell.** Gerichteter Graph $G=(V,E)$ mit Quelle $s$, Senke $t$ und ganzzahligen Kapazitäten $c_e\ge 0$. Ein **Fluss** $f$ erfüllt $0\le f_e\le c_e$ und die Flusserhaltung $\sum_{e\in\delta^+(v)}f_e=\sum_{e\in\delta^-(v)}f_e$ für alle $v\ne s,t$. Sein Wert ist $|f|=\sum_{e\in\delta^+(s)}f_e-\sum_{e\in\delta^-(s)}f_e$.
