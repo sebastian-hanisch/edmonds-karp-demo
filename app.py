@@ -436,7 +436,7 @@ with st.expander("📐 Mathematische Formulierung"):
         r"""
 **Modell.** Gerichteter Graph $G=(V,E)$ mit Quelle $s$, Senke $t$ und ganzzahligen Kapazitäten $c_e\ge 0$. Ein **Fluss** $f$ erfüllt $0\le f_e\le c_e$ und die Flusserhaltung $\sum_{e\in\delta^+(v)}f_e=\sum_{e\in\delta^-(v)}f_e$ für alle $v\ne s,t$. Sein Wert ist $|f|=\sum_{e\in\delta^+(s)}f_e-\sum_{e\in\delta^-(s)}f_e$.
 
-**Lineares Programm.** $\max\,|f|$ unter diesen Nebenbedingungen. Das Dual ist das **Min-Cut-Problem**: $\min\sum_e c_e\,y_e$ mit $y_e\ge z_v-z_u$ für $e=(u,v)$, $z_s=1$, $z_t=0$, $y,z\ge 0$.
+**Lineares Programm.** $\max\,|f|$ unter diesen Nebenbedingungen. Das Dual ist das **Min-Cut-Problem**: $\min\sum_e c_e\,y_e$ mit $y_e\ge z_u-z_v$ für $e=(u,v)$, $z_s=1$, $z_t=0$, $y,z\ge 0$.
 
 **Restgraph.** Zu $f$ gehört der Graph $G_f$ mit Vorwärtskante $(u,v)$ der Restkapazität $c_e-f_e$ und Rückkante $(v,u)$ der Restkapazität $f_e$. Ein **Verbesserungsweg** ist ein Weg von $s$ nach $t$ in $G_f$ mit Restkapazität $>0$; sein Engpass $\delta$ ist die kleinste Restkapazität auf ihm. Auffüllen: $f_e\mathrel{+}=\delta$ auf Vorwärtskanten, $f_e\mathrel{-}=\delta$ auf Rückkanten. Der Wert steigt um $\delta$.
 
